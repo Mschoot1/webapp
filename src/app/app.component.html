@@ -1,12 +1,18 @@
-<script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
-<style>
-  video {
-    width: 640px;
-    height: 360px;
-  }
-</style>
-<body>
-<div>
-  <video data-dashjs-player autoplay src="https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd" controls></video>
-</div>
-</body>
+<vg-player>
+  <vg-buffering></vg-buffering>
+
+  <!--<vg-controls>-->
+  <!--<vg-quality-selector *ngIf="bitrates"-->
+  <!--(onBitrateChange)="setBitrate($event)"-->
+  <!--[bitrates]="bitrates">-->
+  <!--</vg-quality-selector>-->
+  <!--</vg-controls>-->
+  <video #myMedia
+         [vgMedia]="myMedia"
+         [vgDash]="stream.source"
+         (onGetBitrates)="dashBitrates = $event"
+         id="my-video"
+         type="video/mp4"
+         controls>
+  </video>
+</vg-player>
