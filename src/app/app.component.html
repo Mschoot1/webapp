@@ -10,9 +10,11 @@
   <video #myMedia
          [vgMedia]="myMedia"
          [vgDash]="stream.source"
+         [vgHls]="stream.source"
          (onGetBitrates)="dashBitrates = $event"
          id="my-video"
          type="video/mp4"
-         controls>
+         controls
+         crossorigin>
   </video>
 </vg-player>
