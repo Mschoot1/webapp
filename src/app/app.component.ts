@@ -38,6 +38,7 @@ export class AppComponent implements OnInit{
   }
   onPlayerReady(api: VgAPI) {
     this.api = api;
+    console.log('api', api);
   }
 
   setBitrate(option: BitrateOption) {

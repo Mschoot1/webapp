@@ -1,33 +1,34 @@
 <vg-player (onPlayerReady)="onPlayerReady($event)">
-  <vg-overlay-play></vg-overlay-play>
+  <!--<vg-overlay-play></vg-overlay-play>-->
   <vg-buffering></vg-buffering>
 
-  <vg-controls>
-    <vg-play-pause></vg-play-pause>
+  <!--<vg-controls>-->
+    <!--<vg-play-pause></vg-play-pause>-->
 
-    <vg-scrub-bar>
-      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
-    </vg-scrub-bar>
+    <!--<vg-scrub-bar>-->
+      <!--<vg-scrub-bar-current-time></vg-scrub-bar-current-time>-->
+      <!--<vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>-->
+    <!--</vg-scrub-bar>-->
 
-    <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+    <!--<vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>-->
 
-    <vg-quality-selector *ngIf="bitrates"
-                         (onBitrateChange)="setBitrate($event)"
-                         [bitrates]="bitrates">
-    </vg-quality-selector>
+    <!--<vg-quality-selector *ngIf="bitrates"-->
+                         <!--(onBitrateChange)="setBitrate($event)"-->
+                         <!--[bitrates]="bitrates">-->
+    <!--</vg-quality-selector>-->
 
-    <vg-mute></vg-mute>
-    <vg-volume></vg-volume>
+    <!--<vg-mute></vg-mute>-->
+    <!--<vg-volume></vg-volume>-->
 
-    <vg-fullscreen></vg-fullscreen>
-  </vg-controls>
+    <!--<vg-fullscreen></vg-fullscreen>-->
+  <!--</vg-controls>-->
   <video #myMedia
          (onGetBitrates)="bitrates = $event"
          [vgMedia]="myMedia"
          [vgDash]="currentStream.source"
          [vgHls]="currentStream.source"
          id="my-video"
+         controls
          crossorigin>
   </video>
 </vg-player>
