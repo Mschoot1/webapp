@@ -1,0 +1,14 @@
+<a
+  style="cursor: pointer;"
+  [routerLink]="[streamer.name]"
+  routerLinkActive="active" class="clearfix">
+  <mat-list>
+    <mat-list-item (click)="onClick()">
+      <img matListAvatar src="{{streamer.avatar_source}}" alt="...">
+      <h3 matLine> {{streamer.name}} </h3>
+      <p matLine>
+        <span> {{streamer.short_bio}} </span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</a>
