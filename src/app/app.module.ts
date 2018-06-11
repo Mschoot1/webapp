@@ -14,6 +14,14 @@ import {ScrollbarModule} from 'ngx-scrollbar';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { StreamingVideoComponent } from './components/streaming/streaming-video/streaming-video.component';
+import { StreamingChatComponent } from './components/streaming/streaming-chat/streaming-chat.component';
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
+import { VgStreamingModule } from 'videogular2/streaming';
+import { FormsModule } from '@angular/forms';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -27,14 +35,22 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     OverviewItemComponent,
     StreamingComponent,
     OverviewListComponent,
-    OverviewStartComponent
+    OverviewStartComponent,
+    StreamingVideoComponent,
+    StreamingChatComponent
   ],
   imports: [
     BrowserModule,
     MatListModule,
     AppRoutingModule,
     ScrollbarModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
+    VgStreamingModule,
+    FormsModule
   ],
   providers: [{
     provide: PERFECT_SCROLLBAR_CONFIG,
