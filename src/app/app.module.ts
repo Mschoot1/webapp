@@ -5,10 +5,12 @@ import {MatListModule} from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './components/overview/overview.component';
-import { OverviewItemComponent } from './components/overview/overview-item/overview-item.component';
+import { OverviewItemComponent } from './components/overview/overview-list/overview-item/overview-item.component';
 import {RouterModule} from '@angular/router';
 import { StreamingComponent } from './components/streaming/streaming.component';
 import {AppRoutingModule} from './app-routing.module';
+import { OverviewListComponent } from './components/overview/overview-list/overview-list.component';
+import { OverviewStartComponent } from './components/overview/overview-start/overview-start.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import {AppRoutingModule} from './app-routing.module';
     AppComponent,
     OverviewComponent,
     OverviewItemComponent,
-    StreamingComponent
+    StreamingComponent,
+    OverviewListComponent,
+    OverviewStartComponent
   ],
   imports: [
     BrowserModule,

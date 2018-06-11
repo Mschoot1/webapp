@@ -1,12 +1,12 @@
-<div class="container">
 <div class="row">
-  <div class="col-xs-12">
-    <h4>Available streamers to follow</h4>
-    <app-overview-item
-      *ngFor="let streamer of streamers;"
-      [streamer]="streamer"></app-overview-item>
+  <div class="col-md-4 border-right">
+    <app-overview-list></app-overview-list>
+  </div>
+  <div class="col-md-8">
+    <router-outlet></router-outlet>
   </div>
 </div>
-</div>
+
+
 
 
