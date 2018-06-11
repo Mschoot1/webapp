@@ -110,7 +110,7 @@ body{
 .chat-form input {
 	background: #fbfbfb;
 	width: 75%;
-	height: 50px;
+	height: 20px;
 	border: 2px solid #eee;
 	border-radius: 3px;
 	resize: none;

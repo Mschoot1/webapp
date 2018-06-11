@@ -10,7 +10,7 @@ import * as io from 'socket.io-client';
 export class ChatService {
     private url = 'https://calm-ravine-53383.herokuapp.com/';  
     private socket;
-
+    
     getMessages() {
         let observable = new Observable(observer => {
           this.socket = io(this.url);

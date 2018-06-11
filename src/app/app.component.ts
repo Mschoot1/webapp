@@ -10,7 +10,7 @@ import { ChatService } from './chat.service';
 export class AppComponent implements OnInit{
   title = 'app'; 
   messages = [];
-  name = "Naam van account";
+  name = "Name of account";
   values = '';
   constructor(private socket: Socket, private chatservice: ChatService) { 
   }
@@ -27,8 +27,5 @@ export class AppComponent implements OnInit{
 sendMsg(message){
    this.chatservice.sendMessage(message);
    console.log("clicked");
-}
-onKey(event: KeyboardEvent) { // without type info
-  this.values += (<HTMLInputElement>event.target).value;
 }
 }
