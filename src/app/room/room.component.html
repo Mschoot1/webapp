@@ -1,0 +1,17 @@
+<h1>{{room}}</h1><span (click)="leave(room)">Leave</span>
+<ul>
+  <li *ngFor="let message of messages">
+    {{ message }}
+  </li>
+</ul>
+<form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+  <div class="form-row align-items-center">
+    <div class="col-9">
+      <label class="sr-only" for="msg">Message</label>
+      <input formControlName="msg" type="text" class="form-control" id="msg" placeholder="Message">
+    </div>
+    <div class="col-3">
+      <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,15 @@
+ul {
+  height: 400px;
+}
+
+h1 {
+  display: inline-block;
+}
+
+button {
+  width: 100%;
+}
+
+span {
+  float: right;
+}
