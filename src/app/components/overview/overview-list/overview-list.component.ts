@@ -31,6 +31,54 @@ export class OverviewListComponent implements OnInit {
       name: 'Streamer5',
       short_bio: 'test bio 5',
       avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    }, {
+      name: 'Streamer6',
+      short_bio: 'test bio 6',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    },
+    {
+      name: 'Streamer7',
+      short_bio: 'Test bio 7',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png'
+    },
+    {
+      name: 'Streamer8',
+      short_bio: 'test bio 8',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    },
+    {
+      name: 'Streamer9',
+      short_bio: 'test bio 9',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    },
+    {
+      name: 'Streamer10',
+      short_bio: 'test bio 10',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    }, {
+      name: 'Streamer11',
+      short_bio: 'test bio 11',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    },
+    {
+      name: 'Streamer12',
+      short_bio: 'Test bio 12',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png'
+    },
+    {
+      name: 'Streamer13',
+      short_bio: 'test bio 13',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    },
+    {
+      name: 'Streamer14',
+      short_bio: 'test bio 14',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
+    },
+    {
+      name: 'Streamer15',
+      short_bio: 'test bio 15',
+      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
     },
   ];
   constructor() { }

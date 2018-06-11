@@ -1,9 +1,9 @@
 <a
   style="cursor: pointer;"
   [routerLink]="['/overview', streamer.name]"
-  routerLinkActive="active" class="clearfix">
+  routerLinkActive="active" class="list-group-item-custom clearfix">
   <mat-list>
-    <mat-list-item (click)="onClick()">
+    <mat-list-item>
       <img matListAvatar src="{{streamer.avatar_source}}" alt="...">
       <h3 matLine> {{streamer.name}} </h3>
       <p matLine>

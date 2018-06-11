@@ -11,7 +11,4 @@ export class OverviewItemComponent implements OnInit {
 
   ngOnInit() {
   }
-  onClick() {
-    console.log('clicked on ' + this.streamer.name);
-  }
 }

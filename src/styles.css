@@ -1,2 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.margin-container {
+  margin-left: 10px;
+}
+.list-group-item-custom {
+  position: relative;
+  display: block;
+  padding: 0.10rem 0.10rem;
+  margin-bottom: -1px;
+  margin-right: 7px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group-item-custom:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.list-group-item-custom:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.list-group-item-custom:hover, .list-group-item-custom:focus {
+  z-index: 1;
+  text-decoration: none;
+}
+
+.list-group-item-custom.disabled, .list-group-item-custom:disabled {
+  color: #6c757d;
+  background-color: #fff;
+}
+
+.list-group-item-custom.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #0099ff;
+  border-color: #0099ff;
+}
+.border-right-custom {
+  border-right: 1px solid #dee2e6 !important;
+}
+.margin-right-custom {
+  margin-right: 10px;
+}
+.margin-left-custom {
+  margin-left: 100px;
+}
