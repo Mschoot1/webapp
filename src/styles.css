@@ -4,6 +4,9 @@
 .margin-container {
   margin-left: 10px;
 }
+.container-dimensions {
+  max-width: 400px;
+}
 .list-group-item-custom {
   position: relative;
   display: block;
