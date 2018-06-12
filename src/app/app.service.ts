@@ -16,8 +16,9 @@ export class ChatService {
   }
 
   sendMessage(data) {
-    this.socket
-      .emit("chat_message", data);
+    if (data.message)
+      this.socket
+        .emit("chat_message", data);
   }
 
   join(room: string) {
