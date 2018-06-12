@@ -17,8 +17,8 @@ export class RoomComponent implements OnInit {
   });
   messageForm = new FormGroup({
     room: new FormControl(),
-    name: new FormControl(),
-    msg: new FormControl()
+    username: new FormControl(),
+    message: new FormControl()
   });
 
   constructor(private chatService: ChatService) {
@@ -29,7 +29,7 @@ export class RoomComponent implements OnInit {
       .getMessage()
       .subscribe(data => {
         if (this.room === data.room)
-          this.messages.unshift(data.username + ': ' + data.msg);
+          this.messages.unshift(data.username + ': ' + data.message);
       });
   }
 
