@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2 col-lg-2">
+    <div class="col-2 col-lg-2">
       <ul>
         <li *ngFor="let item of list" (click)="addToScreen(item)">
           {{ item }}
         </li>
       </ul>
     </div>
-    <app-room (delete)='removeRoom($event,i)' *ngFor="let room of rooms; let i = index" [room]="room" class="col-md-5 col-lg-2"
-              [ngClass]="{'offset-md-2': i % 3 === 2 }"></app-room>
+    <app-room (delete)='removeRoom($event,i)' *ngFor="let room of rooms; let i = index" [room]="room" class="col-5 col-lg-2"
+              [ngClass]="{'offset-2 offset-lg-0': i % 3 === 2 }"></app-room>
   </div>
 </div>

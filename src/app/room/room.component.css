@@ -1,13 +1,10 @@
 ul {
   height: 400px;
+  overflow: auto;
 }
 
 h1 {
   display: inline-block;
-}
-
-button {
-  width: 100%;
 }
 
 span {

@@ -9,7 +9,7 @@ import {ChatService} from "../app.service";
 })
 export class RoomComponent implements OnInit {
   @Input() room: string;
-  @Output() delete:EventEmitter<string> = new EventEmitter<string>();
+  @Output() delete: EventEmitter<string> = new EventEmitter<string>();
 
   messages = [];
   joinForm = new FormGroup({
@@ -28,9 +28,8 @@ export class RoomComponent implements OnInit {
     this.chatService
       .getMessage()
       .subscribe(data => {
-        console.log(data.msg);
         if (this.room === data.room)
-          this.messages.push(data.message);
+          this.messages.unshift(data.username + ': ' + data.msg);
       });
   }
 
@@ -42,7 +41,7 @@ export class RoomComponent implements OnInit {
 
   sendMessage() {
     this.messageForm.value.room = this.room;
-    this.messageForm.value.name = 'user1';
+    this.messageForm.value.username = 'user1';
     this.chatService.sendMessage(this.messageForm.value);
     this.messageForm.reset();
   }
