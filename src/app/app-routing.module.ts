@@ -12,7 +12,8 @@ const appRoutes: Routes = [
   { path: 'overview', component: OverviewComponent, children: [
     {path: '', component: OverviewStartComponent},
     { path: ':name', component: StreamingComponent}
-  ]}
+  ]},
+  { path: 'test', component: StreamingComponent}
 ];
 
 @NgModule({

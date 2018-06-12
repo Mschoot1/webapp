@@ -53,3 +53,7 @@
 .margin-left-custom {
   margin-left: 100px;
 }
+.custom-div {
+  width: 70%;
+  height: auto;
+}
