@@ -1,0 +1,12 @@
+video {
+  max-width: 100%;
+  height: auto;
+}
+vg-player {
+  max-width: 100%;
+  height: auto;
+}
+.custom-div {
+  width: 70%;
+  height: 50%;
+}

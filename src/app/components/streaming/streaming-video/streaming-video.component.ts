@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {BitrateOption, VgAPI} from 'videogular2/core';
 import {VgDASH} from 'videogular2/src/streaming/vg-dash/vg-dash';
 import { VgHLS } from 'videogular2/src/streaming/vg-hls/vg-hls';
+
 
 export interface IMediaStream {
   type: 'vod' | 'dash' | 'hls';
@@ -10,7 +11,8 @@ export interface IMediaStream {
 @Component({
   selector: 'app-streaming-video',
   templateUrl: './streaming-video.component.html',
-  styleUrls: ['./streaming-video.component.css']
+  styleUrls: ['./streaming-video.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class StreamingVideoComponent implements OnInit {
   @ViewChild(VgDASH) vgDash: VgDASH;
@@ -33,7 +35,7 @@ export class StreamingVideoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentStream = this.streams[ 1 ];
+    this.currentStream = this.streams[ 0 ];
   }
   onPlayerReady(api: VgAPI) {
     this.api = api;
