@@ -29,3 +29,15 @@
 .input-container button {
   width: 90px;
 }
+ul {
+  height: 400px;
+  overflow: auto;
+}
+
+h1 {
+  display: inline-block;
+}
+
+span {
+  float: right;
+}

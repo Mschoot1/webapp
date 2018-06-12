@@ -28,9 +28,11 @@
     "core-js": "^2.4.1",
     "dashjs": "^2.7.0",
     "hls.js": "^0.9.1",
+    "ng-socket-io": "^0.2.4",
     "ngx-perfect-scrollbar": "^6.0.0",
     "ngx-scrollbar": "^2.1.0",
     "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.2.0",
     "videogular2": "^6.2.1",
     "zone.js": "^0.8.26"
   },

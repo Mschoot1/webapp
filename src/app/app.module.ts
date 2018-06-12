@@ -23,11 +23,13 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { VgStreamingModule } from 'videogular2/streaming';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
-
+const config: SocketIoConfig = { url: '188.166.127.54:4200', options: {} };
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     VgBufferingModule,
     VgStreamingModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    SocketIoModule.forRoot(config),
+    ReactiveFormsModule
   ],
   providers: [{
     provide: PERFECT_SCROLLBAR_CONFIG,

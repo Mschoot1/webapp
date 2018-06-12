@@ -17,7 +17,7 @@ export class StreamingComponent implements OnInit {
         console.log('params', params);
         console.log('name ' + params['name']);
         this.name = params['name'];
-      })
+      });
   }
 
 }
