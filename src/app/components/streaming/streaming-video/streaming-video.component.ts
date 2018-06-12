@@ -39,7 +39,7 @@ export class StreamingVideoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentStream = this.streams[ 0 ];
+    this.currentStream = this.streams[ 1 ];
   }
   onPlayerReady(api: VgAPI) {
     this.api = api;

@@ -6,4 +6,7 @@ vg-player {
   max-width: 100%;
   height: auto;
 }
-
+#myMedia {
+  width: 70%;
+  height: auto;
+}
