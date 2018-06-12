@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ChatService} from "../app.service";
 
 @Component({
@@ -18,7 +18,7 @@ export class RoomComponent implements OnInit {
   messageForm = new FormGroup({
     room: new FormControl(),
     username: new FormControl(),
-    message: new FormControl()
+    message: new FormControl(null, Validators.required)
   });
 
   constructor(private chatService: ChatService) {
