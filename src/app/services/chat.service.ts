@@ -1,21 +1,30 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {Socket} from 'ng-socket-io';
+import * as io from 'socket.io-client';
+import {Observable} from 'rxjs/index';
 
 @Injectable()
 export class ChatService {
-
-  constructor(private socket: Socket) {
+  socket: SocketIOClient.Socket;
+  constructor() {
+    this.socket = io.connect('188.166.127.54:4200', {});
   }
 
-  getMessage() {
-    return this.socket
-      .fromEvent<any>('chat_message')
-      .map(data => data);
+  // getMessage() {
+  //   return this.socket
+  //     .fromEvent<any>('chat_message')
+  //     .map(data => data);
+  // }
+  getMessage(): Observable<any> {
+    return new Observable(observer => {
+      this.socket.on('chat_message', (data) => {
+        console.log('service data', data);
+        observer.next(data);
+      });
+    });
   }
 
-  sendMessage(data) {
+    sendMessage(data) {
     console.log('data', data);
     if (data.message) {
       this.socket
@@ -26,7 +35,7 @@ export class ChatService {
   join(room: string) {
     console.log(room);
     this.socket
-      .emit('join_room', room);
+      .emit('join_room', {room: room});
   }
 
   leave(room: string) {

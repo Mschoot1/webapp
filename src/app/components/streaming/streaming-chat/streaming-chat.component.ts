@@ -34,6 +34,7 @@ export class StreamingChatComponent implements OnInit {
     this.room = this.streamer.room;
     console.log(this.room);
     this.chatService.join(this.room);
+    console.log('joined room', this.room);
     this.chatService
       .getMessage()
       .subscribe(data => {
@@ -46,7 +47,7 @@ export class StreamingChatComponent implements OnInit {
   }
   sendMessage() {
     this.messageForm.value.room = this.room;
-    this.messageForm.value.username = 'user1';
+    this.messageForm.value.username = 'Sander';
     console.log('msg', this.messageForm.value);
     this.chatService.sendMessage(this.messageForm.value);
     this.messageForm.reset();

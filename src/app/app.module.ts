@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatListModule} from '@angular/material/list';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './components/overview/overview.component';
@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OverviewGridComponent } from './components/overview/overview-grid/overview-grid.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -40,7 +41,8 @@ const config: SocketIoConfig = { url: '188.166.127.54:4200', options: {} };
     OverviewListComponent,
     OverviewStartComponent,
     StreamingVideoComponent,
-    StreamingChatComponent
+    StreamingChatComponent,
+    OverviewGridComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ const config: SocketIoConfig = { url: '188.166.127.54:4200', options: {} };
     FormsModule,
     NgbModule.forRoot(),
     SocketIoModule.forRoot(config),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule
   ],
   providers: [{
     provide: PERFECT_SCROLLBAR_CONFIG,
