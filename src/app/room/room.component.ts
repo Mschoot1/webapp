@@ -40,7 +40,7 @@ export class RoomComponent implements OnInit {
   sendMessage() {
     this.messageForm.value.room = this.room;
     this.chatService.sendMessage({ 
-      message: this.messageForm.messageForm,
+      message: this.messageForm.message,
       username: 'test_user',     
       room: this.room});
     this.messageForm.reset();
