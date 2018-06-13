@@ -28,13 +28,14 @@ export class RoomComponent implements OnInit {
     this.chatService
       .getMessage()
       .subscribe(data => {
-        if (this.room === data.room)
+        if (this.room === data.room) {
           this.messages.unshift(data.username + ': ' + data.message);
+        }
       });
   }
 
   join() {
-    let room = this.joinForm.value.room;
+    const room = this.joinForm.value.room;
     this.room = room;
     this.chatService.join(room);
   }

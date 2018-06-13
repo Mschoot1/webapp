@@ -1,13 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RoomComponent } from './room/room.component';
-
-// const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
-const config: SocketIoConfig = { url: '188.166.127.54:4200', options: {} };
 
 @NgModule({
   declarations: [
@@ -16,7 +12,6 @@ const config: SocketIoConfig = { url: '188.166.127.54:4200', options: {} };
   ],
   imports: [
     BrowserModule,
-    SocketIoModule.forRoot(config),
     ReactiveFormsModule
   ],
   providers: [],

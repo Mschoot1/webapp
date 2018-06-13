@@ -13,6 +13,6 @@
                 placeholder="Message"></textarea>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="messageForm.invalid">Send</button>
-    <button (click)="leave(room)" class="float-right btn btn-danger">Leave room</button>
+    <button type="button" (click)="leave(room)" class="float-right btn btn-danger">Leave room</button>
   </form>
 </div>
