@@ -25,7 +25,6 @@ export class AppComponent {
   rooms = [];
 
   constructor(private chatService: ChatService) {
-    console.log();
   }
 
   removeRoom(event) {
