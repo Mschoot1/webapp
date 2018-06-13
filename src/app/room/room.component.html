@@ -1,0 +1,18 @@
+<div style="padding:10px;border: 1px lightgray solid;">
+  <h1>{{room}}</h1>
+  <hr>
+  <ul>
+    <li *ngFor="let message of messages">
+      {{ message }}
+    </li>
+  </ul>
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+    <div class="form-group">
+      <label class="sr-only" for="message">Message</label>
+      <textarea rows="4" formControlName="message" type="text" class="form-control" id="message"
+                placeholder="Message"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="messageForm.invalid">Send</button>
+    <button type="button" (click)="leave(room)" class="float-right btn btn-danger">Leave room</button>
+  </form>
+</div>
