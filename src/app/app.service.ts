@@ -30,11 +30,11 @@ export class ChatService {
   join(room: string) {
     console.log(room);
     this.socket
-      .emit('join_room', room);
+      .emit('join_room', {room: room});
   }
 
   leave(room: string) {
     this.socket
-      .emit('leave_room', room);
+      .emit('leave_room', {room: room});
   }
 }
