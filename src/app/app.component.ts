@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {ChatService} from './app.service';
-import * as https from 'https';
-
 
 @Component({
   selector: 'app-root',

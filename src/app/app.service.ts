@@ -8,7 +8,8 @@ export class ChatService {
   socket: SocketIOClient.Socket;
 
   constructor() {
-    this.socket = io.connect('188.166.127.54:4200');
+    this.socket = io.connect('188.166.127.54:4200', {});
+    // this.socket = io.connect('https://localhost:3000');
   }
 
   getMessage(): Observable<any> {

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ChatService} from "../app.service";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ChatService} from '../app.service';
 
 @Component({
   selector: 'app-room',
@@ -16,8 +16,6 @@ export class RoomComponent implements OnInit {
     room: new FormControl()
   });
   messageForm = new FormGroup({
-    room: new FormControl(),
-    username: new FormControl(),
     message: new FormControl(null, Validators.required)
   });
 
@@ -42,7 +40,6 @@ export class RoomComponent implements OnInit {
 
   sendMessage() {
     this.messageForm.value.room = this.room;
-    this.messageForm.value.username = 'user1';
     this.chatService.sendMessage(this.messageForm.value);
     this.messageForm.reset();
   }
