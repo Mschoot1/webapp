@@ -19,8 +19,7 @@ export class RoomComponent implements OnInit {
     message: new FormControl(null, Validators.required)
   });
 
-  constructor(private chatService: ChatService) {
-  }
+  constructor(private chatService: ChatService) {}
 
   ngOnInit() {
     this.chatService
@@ -40,7 +39,10 @@ export class RoomComponent implements OnInit {
 
   sendMessage() {
     this.messageForm.value.room = this.room;
-    this.chatService.sendMessage(this.messageForm.value);
+    this.chatService.sendMessage({ 
+      message: this.messageForm.messageForm,
+      username: 'test_user',     
+      room: this.room});
     this.messageForm.reset();
   }
 
