@@ -23,6 +23,14 @@ export class ChatService {
       });
     });
   }
+  getFollowers(): Observable<any> {
+    return new Observable(observer => {
+      this.socket.on('update_followers', (data) => {
+        console.log('followers', data);
+        observer.next(data);
+      });
+    });
+  }
 
     sendMessage(data) {
     console.log('data', data);
@@ -40,6 +48,6 @@ export class ChatService {
 
   leave(room: string) {
     this.socket
-      .emit('leave_room___', room);
+      .emit('leave_room', {room: room});
   }
 }

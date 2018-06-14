@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ChatService} from '../../../services/chat.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TempStreamerService} from '../../../services/temp-streamer.service';
@@ -10,11 +10,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./streaming-chat.component.css'],
   providers: [ChatService, TempStreamerService]
 })
-export class StreamingChatComponent implements OnInit {
+export class StreamingChatComponent implements OnInit, OnDestroy {
   messages = [];
   name;
   room;
   streamer;
+  followers: number;
   constructor(private chatService: ChatService, private route: ActivatedRoute, private router: Router,
   private tempStreamerService: TempStreamerService) {
   }
@@ -44,6 +45,12 @@ export class StreamingChatComponent implements OnInit {
           this.messages.unshift(data.username + ': ' + data.message);
         }
       });
+    this.chatService
+      .getFollowers()
+      .subscribe(data => {
+        console.log('incoming followercount', data);
+        this.followers = data.followers;
+      });
   }
   sendMessage() {
     this.messageForm.value.room = this.room;
@@ -51,5 +58,8 @@ export class StreamingChatComponent implements OnInit {
     console.log('msg', this.messageForm.value);
     this.chatService.sendMessage(this.messageForm.value);
     this.messageForm.reset();
+  }
+  ngOnDestroy() {
+  this.chatService.leave(this.room);
   }
 }

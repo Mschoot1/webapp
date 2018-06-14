@@ -43,7 +43,7 @@ export class StreamingVideoComponent implements OnInit {
     console.log('api', api);
   }
   ngOnInit() {
-   this.currentStream = this.streams[ 2 ];
+   this.currentStream = this.streams[ 1 ];
   }
   onClickStream(stream: IMediaStream) {
     this.api.pause();

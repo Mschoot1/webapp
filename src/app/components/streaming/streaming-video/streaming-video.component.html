@@ -24,12 +24,11 @@
     <!--</vg-controls>-->
     <video #myMedia
            (onGetBitrates)="bitrates = $event"
-           [vgDash]="currentStream.source"
            [vgHls]="currentStream.source"
            [vgMedia]="myMedia"
            id="my-video"
            controls
-           preload
+           type="video"
            crossorigin>
     </video>
   </vg-player>
