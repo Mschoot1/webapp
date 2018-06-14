@@ -26,7 +26,7 @@ export class RoomComponent implements OnInit {
       .getMessage()
       .subscribe(data => {
         if (this.room === data.room) {
-          this.messages.unshift(data.username + ': ' + data.message);
+          this.messages.unshift(data.username + ': ' + data.message + ' timestamp: ' + data.timestamp);
         }
       });
   }
