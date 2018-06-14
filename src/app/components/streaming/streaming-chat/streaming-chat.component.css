@@ -26,14 +26,16 @@
 .input-container .inputtext {
   width: calc(100% - 100px);
 }
-.input-container button {
-  width: 90px;
+.button-margin {
+  margin-top: 15px;
 }
 ul {
   height: 400px;
   overflow: auto;
 }
-
+textarea {
+  margin-bottom: 20px;
+}
 h1 {
   display: inline-block;
 }

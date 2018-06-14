@@ -1,4 +1,4 @@
-<div class="chatbox">
+<div style="padding:10px;border: 1px lightgray solid;">
   <div class="messages">
     <h2>{{room}}</h2>
     <hr>
@@ -12,9 +12,11 @@
     <!--</div>-->
   </div>
   <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
-    <div class="input-container form-group">
-      <input type="text" formControlName="message" class="inputtext form-control" id="message">
-      <button class="replyBtn">Send</button>
+    <div class="form-group">
+      <label class="sr-only" for="message">Message</label>
+      <textarea rows="4" formControlName="message" type="text" class="form-control" id="message"
+                placeholder="Message"></textarea>
+      <button type="submit" class="btn btn-primary padding-top">Send</button>
     </div>
   </form>
 </div>
