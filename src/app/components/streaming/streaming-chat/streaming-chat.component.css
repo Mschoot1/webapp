@@ -1,0 +1,45 @@
+.self {
+  /*font-weight: bold;*/
+  /*font-style: italic;*/
+}
+.message {
+  text-align: right;
+}
+.chatbox {
+  width: 300px;
+  height: 500px;
+  border: 1px solid #ccc;
+  padding: 16px
+}
+.messages {
+  height: 470px;
+  overflow: auto;
+}
+.input-container {
+  height: 30px;
+  margin-left: -16px;
+  margin-right: -16px;
+  vertical-align: middle;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+.input-container .inputtext {
+  width: calc(100% - 100px);
+}
+.button-margin {
+  margin-top: 15px;
+}
+ul {
+  height: 400px;
+  overflow: auto;
+}
+textarea {
+  margin-bottom: 20px;
+}
+h1 {
+  display: inline-block;
+}
+
+span {
+  float: right;
+}
