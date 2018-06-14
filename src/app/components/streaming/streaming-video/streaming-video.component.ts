@@ -24,8 +24,8 @@ export class StreamingVideoComponent implements OnInit {
   bitrates: BitrateOption[];
   streams: IMediaStream[] = [
     {
-      type: 'dash',
-      source: 'https://bitmovin-a.akamaihd.net/content/playhouse-vr/mpds/105560.mpd',
+      type: 'hls',
+      source: 'http://184.72.239.149/vod/smil:BigBuckBunny.smil/playlist.m3u8',
     },
     {
       type: 'hls',
