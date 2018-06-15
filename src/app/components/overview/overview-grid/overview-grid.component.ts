@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TempStreamerService} from '../../../services/temp-streamer.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {StreamerService} from '../../../../../e2e/app/services/streamer.service';
 
 @Component({
   selector: 'app-overview-grid',
@@ -10,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class OverviewGridComponent implements OnInit {
   streamers = [];
-  constructor(private tempStreamers: TempStreamerService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private tempStreamers: StreamerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.streamers = this.tempStreamers.getStreamers();
