@@ -43,3 +43,7 @@ h1 {
 span {
   float: right;
 }
+.timestamp {
+  font-size: smaller;
+  font-style: italic;
+}
