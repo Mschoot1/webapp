@@ -3,6 +3,7 @@ import {ChatService} from '../../../services/chat.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TempStreamerService} from '../../../services/temp-streamer.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Message} from '../../models/message.model';
 
 @Component({
   selector: 'app-streaming-chat',
@@ -11,7 +12,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   providers: [ChatService, TempStreamerService]
 })
 export class StreamingChatComponent implements OnInit, OnDestroy {
-  messages = [];
+  messages: Message[] = [];
   name;
   room;
   streamer;
@@ -42,7 +43,7 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
         console.log('incoming data', data);
         if (this.room === data.room) {
           console.log('total messages', this.messages);
-          this.messages.unshift(data.username + ': ' + data.message);
+          this.messages.push(new Message(data.username, data.message, data.timestamp));
         }
       });
     this.chatService

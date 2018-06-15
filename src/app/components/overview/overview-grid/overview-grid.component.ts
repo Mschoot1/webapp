@@ -14,7 +14,7 @@ export class OverviewGridComponent implements OnInit {
   constructor(private tempStreamers: StreamerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.streamers = this.tempStreamers.getStreamers();
+    // this.streamers = this.tempStreamers.getStreamers();
   }
 
   toStreamer(streamer) {
