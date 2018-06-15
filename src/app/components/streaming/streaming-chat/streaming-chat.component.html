@@ -1,0 +1,24 @@
+<div style="padding:10px;border: 1px lightgray solid;">
+  <div class="messages">
+    <h2>{{room}} </h2>
+    <p>Current followers: {{followers}}</p>
+    <hr>
+    <ul class="list-unstyled">
+      <li *ngFor="let message of messages">
+        {{ message.username }}: {{ message.message}}
+        <h6 class="timestamp">{{message.timestamp | date: 'mediumTime'}}</h6>
+      </li>
+    </ul>
+    <!--<div *ngFor="let message of messages" [class.self]="message.self" class="message">-->
+      <!--{{message.text}}-->
+    <!--</div>-->
+  </div>
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+    <div class="form-group">
+      <label class="sr-only" for="message">Message</label>
+      <textarea rows="4" formControlName="message" type="text" class="form-control" id="message"
+                placeholder="Message"></textarea>
+      <button type="submit" class="btn btn-primary padding-top">Send</button>
+    </div>
+  </form>
+</div>
