@@ -10,13 +10,13 @@ import {OverviewGridComponent} from './components/overview/overview-grid/overvie
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/overview', pathMatch: 'full' },
-  { path: 'overview', component: OverviewComponent, children: [
+  { path: 'listview', component: OverviewComponent, children: [
     {path: '', component: OverviewStartComponent},
     { path: ':name', component: StreamingComponent}
   ]},
-  {path : 'grid/view/:name', component: StreamingComponent},
+  {path : 'overview/watch/:name', component: StreamingComponent},
   { path: 'test', component: StreamingComponent},
-  { path: 'grid', component: OverviewGridComponent, children: [
+  { path: 'overview', component: OverviewGridComponent, children: [
     {
       path: 'view/:name', component: StreamingComponent
     }
