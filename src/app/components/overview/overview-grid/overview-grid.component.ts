@@ -11,10 +11,10 @@ import {StreamerService} from '../../../../../e2e/app/services/streamer.service'
 })
 export class OverviewGridComponent implements OnInit {
   streamers = [];
-  constructor(private tempStreamers: StreamerService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private tempStreamers: TempStreamerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    // this.streamers = this.tempStreamers.getStreamers();
+     this.streamers = this.tempStreamers.getStreamers();
   }
 
   toStreamer(streamer) {

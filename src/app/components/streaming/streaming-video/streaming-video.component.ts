@@ -1,10 +1,12 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {BitrateOption, VgAPI} from 'videogular2/core';
 import {VgDASH} from 'videogular2/src/streaming/vg-dash/vg-dash';
 import { VgHLS } from 'videogular2/src/streaming/vg-hls/vg-hls';
 import {Subscription} from 'rxjs/Rx';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
+import {DOCUMENT} from '@angular/platform-browser';
 
+declare const videojs: any;
 
 export interface IMediaStream {
   type: 'vod' | 'dash' | 'hls';
@@ -36,7 +38,7 @@ export class StreamingVideoComponent implements OnInit {
       source: 'http://www.streambox.fr/playlists/test_001/stream.m3u8'
     }
   ];
-  constructor(private api: VgAPI) {
+  constructor(private api: VgAPI, private elementref: ElementRef, @Inject(DOCUMENT) private document) {
   }
   onPlayerReady(api: VgAPI) {
     this.api = api;
@@ -44,7 +46,46 @@ export class StreamingVideoComponent implements OnInit {
   }
   ngOnInit() {
    this.currentStream = this.streams[ 0 ];
+    var s = document.createElement('script');
+    s.type = 'application/javascript';
+    s.src = '/assets/scripts/script.js';
+    this.elementref.nativeElement.appendChild(s);
+
   }
+  // ngAfterViewInit() {
+  //   var s = document.createElement('script');
+  //   s.type = 'application/javascript';
+  //   s.src = 'src/assets/scripts/script.js';
+  //   s.text= '    (function(window, videojs) {\n' +
+  //     '      var player = window.player = videojs(\'example-video\');\n' +
+  //     '\n' +
+  //     '      // hook up the video switcher\n' +
+  //     '      var loadUrl = document.getElementById(\'load-url\');\n' +
+  //     '      var url = document.getElementById(\'url\');\n' +
+  //     '      loadUrl.addEventListener(\'submit\', function(event) {\n' +
+  //     '        event.preventDefault();\n' +
+  //     '        player.src({\n' +
+  //     '          src: url.value,\n' +
+  //     '          type: \'application/x-mpegURL\'\n' +
+  //     '        });\n' +
+  //     '        return false;\n' +
+  //     '      });\n' +
+  //     '    }(window, window.videojs));';
+  //   this.elementref.nativeElement.appendChild(s);
+  // //  this.callVideojs();
+  // }
+  // async ngAfterViewInit() {
+  //   await this.loadScript()
+  // }
+  // loadScript() {
+  //   return new Promise((resolve, reject) => {
+  //     const scriptElement = document.createElement('script');
+  //     scriptElement.src = '/assets/scripts/script.js';
+  //     scriptElement.onload = resolve;
+  //     document.body.appendChild(scriptElement);
+  //     }
+  //   )
+  // }
   onClickStream(stream: IMediaStream) {
     this.api.pause();
     this.bitrates = null;
@@ -56,7 +97,9 @@ export class StreamingVideoComponent implements OnInit {
       }
     );
   }
-
+  callVideojs() {
+    new videojs();
+  }
   setBitrate(option: BitrateOption) {
     switch (this.currentStream.type) {
       case 'dash':

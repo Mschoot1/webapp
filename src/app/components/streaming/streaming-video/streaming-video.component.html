@@ -1,24 +1,24 @@
 <div class="container pull-left">
-  <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="1150" height="650"
+  <video id="example-video" class="video-js vjs-default-skin" controls preload="auto" width="1150" height="650"
          data-setup='{}'>
     <source src="{{streams[0].source}}" type="application/x-mpegURL">
   </video>
 
-  <script>
-    (function(window, videojs) {
-      var player = window.player = videojs('example-video');
+  <!--<script>-->
+    <!--(function(window, videojs) {-->
+      <!--var player = window.player = videojs('example-video');-->
 
-      // hook up the video switcher
-      var loadUrl = document.getElementById('load-url');
-      var url = document.getElementById('url');
-      loadUrl.addEventListener('submit', function(event) {
-        event.preventDefault();
-        player.src({
-          src: url.value,
-          type: 'application/x-mpegURL'
-        });
-        return false;
-      });
-    }(window, window.videojs));
-  </script>
+      <!--// hook up the video switcher-->
+      <!--var loadUrl = document.getElementById('load-url');-->
+      <!--var url = document.getElementById('url');-->
+      <!--loadUrl.addEventListener('submit', function(event) {-->
+        <!--event.preventDefault();-->
+        <!--player.src({-->
+          <!--src: url.value,-->
+          <!--type: 'application/x-mpegURL'-->
+        <!--});-->
+        <!--return false;-->
+      <!--});-->
+    <!--}(window, window.videojs));-->
+  <!--</script>-->
 </div>
