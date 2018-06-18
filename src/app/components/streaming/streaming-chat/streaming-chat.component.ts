@@ -16,34 +16,44 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
   name;
   room;
   streamer;
+  username: string;
   followers: number;
+
   constructor(private chatService: ChatService, private route: ActivatedRoute, private router: Router,
-  private tempStreamerService: TempStreamerService) {
+              private tempStreamerService: TempStreamerService) {
+
   }
+
   messageForm = new FormGroup({
     room: new FormControl(),
     username: new FormControl(),
     message: new FormControl(null, Validators.required)
   });
+
   ngOnInit() {
     this.route.params
       .subscribe(params => {
         console.log('params', params);
         console.log('name ' + params['name']);
         this.name = params['name'];
+
+        this.chatService.leave(this.room);
+        this.messages = [];
+
+        this.streamer = this.tempStreamerService.getStreamer(this.name);
+        this.room = this.streamer.room;
+        console.log(this.room);
+        this.chatService.join(this.room);
+        console.log('joined room', this.room);
+
       });
-    this.streamer = this.tempStreamerService.getStreamer(this.name);
-    this.room = this.streamer.room;
-    console.log(this.room);
-    this.chatService.join(this.room);
-    console.log('joined room', this.room);
     this.chatService
       .getMessage()
       .subscribe(data => {
         console.log('incoming data', data);
         if (this.room === data.room) {
           console.log('total messages', this.messages);
-          this.messages.push(new Message(data.username, data.message, data.timestamp));
+          this.messages.push(new Message(data.id, data.username, data.message, data.timestamp));
         }
       });
     this.chatService
@@ -52,15 +62,23 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
         console.log('incoming followercount', data);
         this.followers = data.followers;
       });
+    this.chatService
+      .getUsername()
+      .subscribe(username => {
+        console.log('incoming username', username);
+        this.username = username;
+      });
   }
+
   sendMessage() {
     this.messageForm.value.room = this.room;
-    this.messageForm.value.username = 'Sander';
+    this.messageForm.value.username = this.username;
     console.log('msg', this.messageForm.value);
     this.chatService.sendMessage(this.messageForm.value);
     this.messageForm.reset();
   }
+
   ngOnDestroy() {
-  this.chatService.leave(this.room);
+    this.chatService.leave(this.room);
   }
 }
