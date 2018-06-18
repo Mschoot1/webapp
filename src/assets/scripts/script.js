@@ -1,15 +1,15 @@
-(function videojs(window, videojs) {
-  var player = window.player = videojs('example-video');
-
-  // hook up the video switcher
-  var loadUrl = document.getElementById('load-url');
-  var url = document.getElementById('url');
-  loadUrl.addEventListener('submit', function(event) {
-    event.preventDefault();
-    player.src({
-      src: url.value,
-      type: 'application/x-mpegURL'
+function hlsPlayer() {
+  var video = document.getElementById('video');
+  if(Hls.isSupported()) {
+    var hlsjsConfig = {
+      "maxBufferSize": 0,
+      "maxBufferLength": 30,
+      "liveSyncDurationCount": 1
+    };
+    var hls = new Hls(hlsjsConfig);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+      video.play();
     });
-    return false;
-  });
-}(window, window.videojs));
+  }
+}

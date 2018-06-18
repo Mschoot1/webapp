@@ -6,7 +6,7 @@
     <ul class="list-unstyled">
       <li *ngFor="let message of messages">
         {{ message.username }} <span class="timestamp">{{ message.timestamp | date: 'mediumTime'}}</span>
-        <p class="text">{{message.message}}</p>
+        <p class="text" [ngClass]="{'streamer': streamer.name == message.username}">{{message.message}}</p>
         <!--<h6 class="timestamp">{{message.message}}</h6>-->
       </li>
     </ul>

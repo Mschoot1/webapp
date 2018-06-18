@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     {path: '', component: OverviewStartComponent},
     { path: ':name', component: StreamingComponent}
   ]},
-  {path : 'overview/watch/:name', component: StreamingComponent},
+  {path : 'overview/watch/:key', component: StreamingComponent},
   { path: 'test', component: StreamingComponent},
   { path: 'overview', component: OverviewGridComponent, children: [
     {

@@ -6,6 +6,7 @@ import {Subscription} from 'rxjs/Rx';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {DOCUMENT} from '@angular/platform-browser';
 
+declare const hlsPlayer: any;
 declare const videojs: any;
 
 export interface IMediaStream {
@@ -47,45 +48,11 @@ export class StreamingVideoComponent implements OnInit {
   ngOnInit() {
    this.currentStream = this.streams[ 0 ];
     var s = document.createElement('script');
-    s.type = 'application/javascript';
-    s.src = '/assets/scripts/script.js';
+    s.src = 'assets/scripts/script.js';
     this.elementref.nativeElement.appendChild(s);
+    this.callHlsjs();
 
   }
-  // ngAfterViewInit() {
-  //   var s = document.createElement('script');
-  //   s.type = 'application/javascript';
-  //   s.src = 'src/assets/scripts/script.js';
-  //   s.text= '    (function(window, videojs) {\n' +
-  //     '      var player = window.player = videojs(\'example-video\');\n' +
-  //     '\n' +
-  //     '      // hook up the video switcher\n' +
-  //     '      var loadUrl = document.getElementById(\'load-url\');\n' +
-  //     '      var url = document.getElementById(\'url\');\n' +
-  //     '      loadUrl.addEventListener(\'submit\', function(event) {\n' +
-  //     '        event.preventDefault();\n' +
-  //     '        player.src({\n' +
-  //     '          src: url.value,\n' +
-  //     '          type: \'application/x-mpegURL\'\n' +
-  //     '        });\n' +
-  //     '        return false;\n' +
-  //     '      });\n' +
-  //     '    }(window, window.videojs));';
-  //   this.elementref.nativeElement.appendChild(s);
-  // //  this.callVideojs();
-  // }
-  // async ngAfterViewInit() {
-  //   await this.loadScript()
-  // }
-  // loadScript() {
-  //   return new Promise((resolve, reject) => {
-  //     const scriptElement = document.createElement('script');
-  //     scriptElement.src = '/assets/scripts/script.js';
-  //     scriptElement.onload = resolve;
-  //     document.body.appendChild(scriptElement);
-  //     }
-  //   )
-  // }
   onClickStream(stream: IMediaStream) {
     this.api.pause();
     this.bitrates = null;
@@ -96,6 +63,9 @@ export class StreamingVideoComponent implements OnInit {
         timer.unsubscribe();
       }
     );
+  }
+  callHlsjs() {
+    new hlsPlayer();
   }
   callVideojs() {
     new videojs();
