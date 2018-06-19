@@ -89,7 +89,7 @@ export class TempStreamerService {
     },
     {
       name: 'Streamer15',
-      short_bio: 'test bio 15',
+      short_bio: 'test bio localhloca15',
       room: 'room 15',
       avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
     },
