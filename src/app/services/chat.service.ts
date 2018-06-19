@@ -32,7 +32,7 @@ export class ChatService {
       this.packets.push(data);
     }
   }
-
+  
   getMessage(): Observable<any> {
     return new Observable(observer => {
       this.socketHttp.on('chat_message', (data) => {

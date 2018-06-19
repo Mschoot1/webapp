@@ -1,12 +1,13 @@
-<div style="padding:10px;border: 1px lightgray solid;">
+<div style="padding:10px;border: 1px lightgray solid;margin-right: 20px">
   <div class="messages">
-    <h2>{{room}} </h2>
+    <h2>Chatroom: {{room}} </h2>
     <p>Current followers: {{followers}}</p>
     <hr>
     <ul class="list-unstyled">
       <li *ngFor="let message of messages">
-        {{ message.username }}: {{ message.message}}
-        <h6 class="timestamp">{{message.timestamp | date: 'mediumTime'}}</h6>
+        {{ message.username }} <span class="timestamp">{{ message.timestamp | date: 'mediumTime'}}</span>
+        <p class="text" [ngClass]="{'streamer': streamer.name == message.username}">{{message.message}}</p>
+        <!--<h6 class="timestamp">{{message.message}}</h6>-->
       </li>
     </ul>
     <!--<div *ngFor="let message of messages" [class.self]="message.self" class="message">-->

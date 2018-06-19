@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {TempStreamerService} from '../../../services/temp-streamer.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Message} from '../../models/message.model';
+import {StreamerService} from '../../../services/streamer.service';
+import {Streamer} from '../../models/streamer.model';
 
 @Component({
   selector: 'app-streaming-chat',
@@ -15,13 +17,12 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
   messages: Message[] = [];
   name;
   room;
-  streamer;
+  streamer: Streamer;
   username: string;
   followers: number;
 
   constructor(private chatService: ChatService, private route: ActivatedRoute, private router: Router,
-              private tempStreamerService: TempStreamerService) {
-
+  private tempStreamerService: TempStreamerService, private streamerService: StreamerService) {
   }
 
   messageForm = new FormGroup({
@@ -31,22 +32,12 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit() {
-    this.route.params
-      .subscribe(params => {
-        console.log('params', params);
-        console.log('name ' + params['name']);
-        this.name = params['name'];
-
-        this.chatService.leave(this.room);
-        this.messages = [];
-
-        this.streamer = this.tempStreamerService.getStreamer(this.name);
-        this.room = this.streamer.room;
-        console.log(this.room);
-        this.chatService.join(this.room);
-        console.log('joined room', this.room);
-
-      });
+    this.streamer = this.streamerService.getCurrentStreamer();
+    this.chatService.leave(this.room);
+    this.room = this.streamer.stream_key;
+    console.log(this.room);
+    this.chatService.join(this.room);
+    console.log('joined room', this.room);
     this.chatService
       .getMessage()
       .subscribe(data => {
