@@ -27,6 +27,7 @@ import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OverviewGridComponent } from './components/overview/overview-grid/overview-grid.component';
 import {StreamerService} from './services/streamer.service';
+import { HeaderComponent } from './components/header/header.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -43,7 +44,8 @@ const config: SocketIoConfig = { url: '188.166.127.54:4200', options: {} };
     OverviewStartComponent,
     StreamingVideoComponent,
     StreamingChatComponent,
-    OverviewGridComponent
+    OverviewGridComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
