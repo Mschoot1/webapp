@@ -13,8 +13,8 @@ export class ChatService {
 
   constructor() {
     // this.socket = io.connect('188.166.127.54:4200', {});
-    this.socketHttp = io.connect('http://localhost:3000', {});
-    this.socketHttps = io.connect('https://localhost:3080', {});
+    this.socketHttp = io.connect('http://188.166.127.54:3030', {});
+    this.socketHttps = io.connect('https://188.166.127.54:443', {});
   }
 
   private handlePackets(data, callback) {
@@ -32,7 +32,7 @@ export class ChatService {
       this.packets.push(data);
     }
   }
-  
+
   getMessage(): Observable<any> {
     return new Observable(observer => {
       this.socketHttp.on('chat_message', (data) => {
