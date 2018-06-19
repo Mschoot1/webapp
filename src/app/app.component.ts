@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {StreamerService} from './services/streamer.service';
 
 @Component({
   selector: 'app-root',

@@ -1,10 +1,13 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {BitrateOption, VgAPI} from 'videogular2/core';
 import {VgDASH} from 'videogular2/src/streaming/vg-dash/vg-dash';
 import { VgHLS } from 'videogular2/src/streaming/vg-hls/vg-hls';
 import {Subscription} from 'rxjs/Rx';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
+import {DOCUMENT} from '@angular/platform-browser';
 
+declare const hlsPlayer: any;
+declare const videojs: any;
 
 export interface IMediaStream {
   type: 'vod' | 'dash' | 'hls';
@@ -29,21 +32,26 @@ export class StreamingVideoComponent implements OnInit {
     },
     {
       type: 'hls',
-      source: 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8',
+      source: 'http://188.166.127.54:8000/live/iets/index.m3u8',
     },
     {
       type: 'hls',
       source: 'http://www.streambox.fr/playlists/test_001/stream.m3u8'
     }
   ];
-  constructor(private api: VgAPI) {
+  constructor(private api: VgAPI, private elementref: ElementRef, @Inject(DOCUMENT) private document) {
   }
   onPlayerReady(api: VgAPI) {
     this.api = api;
     console.log('api', api);
   }
   ngOnInit() {
-   this.currentStream = this.streams[ 1 ];
+   this.currentStream = this.streams[ 0 ];
+    var s = document.createElement('script');
+    s.src = 'assets/scripts/script.js';
+    this.elementref.nativeElement.appendChild(s);
+    this.callHlsjs();
+
   }
   onClickStream(stream: IMediaStream) {
     this.api.pause();
@@ -56,7 +64,12 @@ export class StreamingVideoComponent implements OnInit {
       }
     );
   }
-
+  callHlsjs() {
+    new hlsPlayer();
+  }
+  callVideojs() {
+    new videojs();
+  }
   setBitrate(option: BitrateOption) {
     switch (this.currentStream.type) {
       case 'dash':

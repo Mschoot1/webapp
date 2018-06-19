@@ -9,12 +9,6 @@ export class ChatService {
   constructor() {
     this.socket = io.connect('188.166.127.54:4200', {});
   }
-
-  // getMessage() {
-  //   return this.socket
-  //     .fromEvent<any>('chat_message')
-  //     .map(data => data);
-  // }
   getMessage(): Observable<any> {
     return new Observable(observer => {
       this.socket.on('chat_message', (data) => {
