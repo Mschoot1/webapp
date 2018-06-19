@@ -1,19 +1,12 @@
 video {
-  max-width: 100%;
-  height: 600px;
+  width: 100%;
 }
-vg-player {
-  max-width: 800px;
-  height: auto;
-}
-/*#myMedia {*/
-  /*width: 70%;*/
-  /*height: auto;*/
-/*}*/
+
 .testmargin {
   margin-left: 100px;
   margin-top: 100px;
 }
+
 li {
   cursor: pointer;
 }

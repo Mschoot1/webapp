@@ -57,3 +57,11 @@
   width: 70%;
   height: auto;
 }
+
+.container-fluid, .row {
+  height: 100vh;
+}
+
+.form-group {
+  margin-bottom: 0;
+}

@@ -1,12 +1,18 @@
 <div class="container">
-  <h2>The following users are live right now:</h2>
-  <mat-grid-list cols="7" rowHeight="170px" gutterSize="10px">
-    <mat-grid-tile style="cursor: pointer"
-      *ngFor="let streamer of streamers" (click)="toStreamer(streamer)">
-      <img matListAvatar src="{{streamer.avatar_source}}" alt="..." class="custom-img">
-      <mat-grid-tile-footer>
-        {{streamer.name}}
-      </mat-grid-tile-footer>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div class="row">
+    <div class="col-12">
+      <h2>The following users are live right now:</h2>
+    </div>
+    <div class="col-12">
+      <mat-grid-list cols="7" rowHeight="170px" gutterSize="10px">
+        <mat-grid-tile style="cursor: pointer"
+                       *ngFor="let streamer of streamers" (click)="toStreamer(streamer)">
+          <img matListAvatar src="{{streamer.avatar_source}}" alt="..." class="custom-img">
+          <mat-grid-tile-footer>
+            {{streamer.name}}
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
 </div>

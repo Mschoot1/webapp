@@ -44,7 +44,7 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
         console.log('incoming data', data);
         if (this.room === data.room) {
           console.log('total messages', this.messages);
-          this.messages.push(new Message(data.id, data.username, data.message, data.timestamp));
+          this.messages.unshift(new Message(data.id, data.username, data.message, data.timestamp));
         }
       });
     this.chatService
@@ -67,6 +67,10 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
     console.log('msg', this.messageForm.value);
     this.chatService.sendMessage(this.messageForm.value);
     this.messageForm.reset();
+  }
+
+  toOverview() {
+    this.router.navigate(['overview']);
   }
 
   ngOnDestroy() {

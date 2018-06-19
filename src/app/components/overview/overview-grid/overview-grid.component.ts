@@ -20,17 +20,19 @@ export class OverviewGridComponent implements OnInit {
 
   ngOnInit() {
      // this.streamers = this.tempStreamers.getStreamers();
-    this.subscription = this.streamerService.streamersChanged
-      .subscribe(
-        (streamers: Streamer[]) => {
-          this.streamers = streamers;
-        }
-      );
-    this.streamerService.getLiveStreamers()
-      .then(streamers => {
-        this.streamers = streamers;
-      })
-      .catch(error => console.log(error));
+    // this.subscription = this.streamerService.streamersChanged
+    //   .subscribe(
+    //     (streamers: Streamer[]) => {
+    //       this.streamers = streamers;
+    //     }
+    //   );
+    // this.streamerService.getLiveStreamers()
+    //   .then(streamers => {
+    //     this.streamers = streamers;
+    //   })
+    //   .catch(error => console.log(error));
+    this.streamers = [new Streamer('123', 'streamerName', '', 'bio', 'streamKey')];
+
   }
 
   toStreamer(streamer) {
