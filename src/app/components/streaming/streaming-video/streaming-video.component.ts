@@ -96,15 +96,4 @@ export class StreamingVideoComponent implements OnInit {
     }
     return this.source;
   }
-  setBitrate(option: BitrateOption) {
-    switch (this.currentStream.type) {
-      case 'dash':
-        this.vgDash.setBitrate(option);
-        break;
-
-      case 'hls':
-        this.vgHls.setBitrate(option);
-        break;
-    }
-  }
 }

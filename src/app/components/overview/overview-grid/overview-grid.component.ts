@@ -14,14 +14,12 @@ import {StreamerService} from '../../../services/streamer.service';
 export class OverviewGridComponent implements OnInit {
   livestreamers = [];
   subscription: Subscription;
-  defaultStreamers = [];
   streamers = [];
 
   constructor(private tempStreamers: TempStreamerService, private route: ActivatedRoute, private router: Router,
   private streamerService: StreamerService) { }
 
   ngOnInit() {
-    this.defaultStreamers = this.tempStreamers.getStreamers();
     this.subscription = this.streamerService.streamersChanged
       .subscribe(
         (streamers: Streamer[]) => {
@@ -33,7 +31,7 @@ export class OverviewGridComponent implements OnInit {
         this.streamers = streamers;
       })
       .catch(error => console.log(error));
-    // this.streamers = this.defaultStreamers;
+    // this.streamers = this.tempStreamers.getStreamers();
   }
 
   toStreamer(streamer) {

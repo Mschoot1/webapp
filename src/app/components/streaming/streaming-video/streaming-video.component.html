@@ -23,7 +23,6 @@
       <!--<vg-fullscreen></vg-fullscreen>-->
     <!--</vg-controls>-->
     <video #myMedia
-           (onGetBitrates)="bitrates = $event"
            [vgHls]="currentStream.source"
            [vgMedia]="myMedia"
            id="video"

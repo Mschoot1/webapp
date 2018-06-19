@@ -4,13 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   title = 'SeeChange';
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
