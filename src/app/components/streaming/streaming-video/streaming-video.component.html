@@ -18,16 +18,16 @@
 
   <!--<vg-mute></vg-mute>-->
   <!--<vg-volume></vg-volume>-->
-
-  <!--<vg-fullscreen></vg-fullscreen>-->
-  <!--</vg-controls>-->
-  <video #myMedia
-         (onGetBitrates)="bitrates = $event"
-         [vgHls]="currentStream.source"
-         [vgMedia]="myMedia"
-         id="video"
-         type="video"
-         controls
-         crossorigin>
-  </video>
-</vg-player>
+      <!--<vg-fullscreen></vg-fullscreen>-->
+    <!--</vg-controls>-->
+    <video #myMedia
+           [vgHls]="currentStream.source"
+           [vgMedia]="myMedia"
+           id="video"
+           type="video"
+           controls
+           crossorigin
+           autoplay>
+    </video>
+  </vg-player>
+</div>

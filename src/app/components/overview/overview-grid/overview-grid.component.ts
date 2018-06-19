@@ -12,27 +12,26 @@ import {StreamerService} from '../../../services/streamer.service';
   providers: [TempStreamerService]
 })
 export class OverviewGridComponent implements OnInit {
-  streamers = [];
+  livestreamers = [];
   subscription: Subscription;
+  streamers = [];
 
   constructor(private tempStreamers: TempStreamerService, private route: ActivatedRoute, private router: Router,
   private streamerService: StreamerService) { }
 
   ngOnInit() {
-     // this.streamers = this.tempStreamers.getStreamers();
-    // this.subscription = this.streamerService.streamersChanged
-    //   .subscribe(
-    //     (streamers: Streamer[]) => {
-    //       this.streamers = streamers;
-    //     }
-    //   );
-    // this.streamerService.getLiveStreamers()
-    //   .then(streamers => {
-    //     this.streamers = streamers;
-    //   })
-    //   .catch(error => console.log(error));
-    this.streamers = [new Streamer('123', 'streamerName', '', 'bio', 'streamKey')];
-
+    this.subscription = this.streamerService.streamersChanged
+      .subscribe(
+        (streamers: Streamer[]) => {
+          this.streamers = streamers;
+        }
+      );
+    this.streamerService.getLiveStreamers()
+      .then(streamers => {
+        this.streamers = streamers;
+      })
+      .catch(error => console.log(error));
+    // this.streamers = this.tempStreamers.getStreamers();
   }
 
   toStreamer(streamer) {

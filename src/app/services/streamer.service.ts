@@ -12,6 +12,7 @@ export class StreamerService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl; // URL to web api
   private streamers: Streamer[] = [];
+  private streamer: Streamer;
   currentStreamer: Streamer;
   streamersChanged = new Subject<Streamer[]>();
 
@@ -25,6 +26,20 @@ export class StreamerService {
         console.dir(response.json());
         this.streamers = response.json() as Streamer[];
         return this.streamers;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
+  public getStreamer(streamKey: string): Promise<Streamer> {
+    console.log('streamer met key ' + streamKey + ' ophalen');
+    return this.http.get(this.serverUrl + 'getStreamer/' + streamKey, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        console.dir(response.json());
+        this.streamer = response.json() as Streamer;
+        return this.streamer;
       })
       .catch(error => {
         console.log('handleError');

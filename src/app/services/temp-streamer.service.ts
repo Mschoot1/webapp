@@ -1,100 +1,19 @@
 import {Injectable} from '@angular/core';
+import {Streamer} from "../components/models/streamer.model";
 /**
  * Created by Sander on 12-6-2018.
  */
 @Injectable()
 export class TempStreamerService {
-  private streamers = [
-    {
-      name: 'Streamer1',
-      short_bio: 'test bio 1',
-      room: 'room 1',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer2',
-      short_bio: 'Test bio 2',
-      room: 'room 2',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png'
-    },
-    {
-      name: 'Streamer3',
-      short_bio: 'test bio 3',
-      room: 'room 3',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer4',
-      short_bio: 'test bio 4',
-      room: 'room 4',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer5',
-      short_bio: 'test bio 5',
-      room: 'room 5',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    }, {
-      name: 'Streamer6',
-      short_bio: 'test bio 6',
-      room: 'room 6',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer7',
-      short_bio: 'Test bio 7',
-      room: 'room 7',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png'
-    },
-    {
-      name: 'Streamer8',
-      short_bio: 'test bio 8',
-      room: 'room 8',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer9',
-      short_bio: 'test bio 9',
-      room: 'room 9',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer10',
-      short_bio: 'test bio 10',
-      room: 'room 10',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    }, {
-      name: 'Streamer11',
-      short_bio: 'test bio 11',
-      room: 'room 11',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer12',
-      short_bio: 'Test bio 12',
-      room: 'room 12',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png'
-    },
-    {
-      name: 'Streamer13',
-      short_bio: 'test bio 13',
-      room: 'room 13',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer14',
-      short_bio: 'test bio 14',
-      room: 'room 14',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-    {
-      name: 'Streamer15',
-      short_bio: 'test bio localhloca15',
-      room: 'room 15',
-      avatar_source: 'https://enbaca.com/web/assets/image-resources/avatar.png',
-    },
-  ];
+  private streamer1 = new Streamer('1', 'Kayvon Rahimi', 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+    'Streaming Jimmy Neutron every Friday!', 'key123', true);
+  private streamer2 =   new Streamer('1', 'Lars Smans', 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+    'Fortnite every day', 'key123', true);
+  private streamers: Streamer[];
   public getStreamers() {
+    this.streamers = [];
+    this.streamers.push(this.streamer1);
+    this.streamers.push(this.streamer2);
     return this.streamers;
   }
   public getStreamer(name: string) {

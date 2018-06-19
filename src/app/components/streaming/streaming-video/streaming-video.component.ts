@@ -5,6 +5,9 @@ import { VgHLS } from 'videogular2/src/streaming/vg-hls/vg-hls';
 import {Subscription} from 'rxjs/Rx';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {DOCUMENT} from '@angular/platform-browser';
+import {ActivatedRoute, Router} from '@angular/router';
+import {StreamerService} from '../../../services/streamer.service';
+
 
 declare const hlsPlayer: any;
 declare const videojs: any;
@@ -23,6 +26,8 @@ export class StreamingVideoComponent implements OnInit {
   @ViewChild(VgDASH) vgDash: VgDASH;
   @ViewChild(VgHLS) vgHls: VgHLS;
   currentStream: IMediaStream;
+  streamKey: string;
+  source: IMediaStream;
 
   bitrates: BitrateOption[];
   streams: IMediaStream[] = [
@@ -39,19 +44,25 @@ export class StreamingVideoComponent implements OnInit {
       source: 'http://www.streambox.fr/playlists/test_001/stream.m3u8'
     }
   ];
-  constructor(private api: VgAPI, private elementref: ElementRef, @Inject(DOCUMENT) private document) {
+  constructor(private api: VgAPI, private elementref: ElementRef, @Inject(DOCUMENT) private document,
+              private route: ActivatedRoute, private router: Router, private streamingService: StreamerService) {
   }
   onPlayerReady(api: VgAPI) {
     this.api = api;
     console.log('api', api);
   }
   ngOnInit() {
-   this.currentStream = this.streams[ 0 ];
-    var s = document.createElement('script');
+    const s = document.createElement('script');
     s.src = 'assets/scripts/script.js';
     this.elementref.nativeElement.appendChild(s);
     this.callHlsjs();
-
+    this.route.params
+      .subscribe(params => {
+        console.log('params', params);
+        console.log('streamkey ' + params['key']);
+        this.streamKey = params['key'];
+      });
+    this.currentStream = this.getSource(this.streamKey);
   }
   onClickStream(stream: IMediaStream) {
     this.api.pause();
@@ -70,15 +81,19 @@ export class StreamingVideoComponent implements OnInit {
   callVideojs() {
     new videojs();
   }
-  setBitrate(option: BitrateOption) {
-    switch (this.currentStream.type) {
-      case 'dash':
-        this.vgDash.setBitrate(option);
-        break;
-
-      case 'hls':
-        this.vgHls.setBitrate(option);
-        break;
+  getSource(streamKey) {
+    if (streamKey === 'key123') {
+      this.source = this.streams[0];
+      // this.source = {
+      //   type: 'hls',
+      //   source: 'http://188.166.127.54:8000/live/' + streamKey + '/index.m3u8'
+      // };
+    } else {
+      this.source = {
+        type: 'hls',
+        source: 'http://188.166.127.54:8000/live/' + streamKey + '/index.m3u8'
+      };
     }
+    return this.source;
   }
 }

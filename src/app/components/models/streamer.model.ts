@@ -7,13 +7,24 @@ export class Streamer {
   private _avatar_source: string;
   private _short_bio: string;
   private _stream_key: string;
+  private _isLive: boolean;
 
-  constructor(id: string, name: string, avatar_source: string, short_bio: string, stream_key: string) {
+
+  constructor(id: string, name: string, avatar_source: string, short_bio: string, stream_key: string, isLive: boolean) {
     this._id = id;
     this._name = name;
     this._avatar_source = avatar_source;
     this._short_bio = short_bio;
     this._stream_key = stream_key;
+    this._isLive = isLive;
+  }
+
+  get isLive(): boolean {
+    return this._isLive;
+  }
+
+  set isLive(value: boolean) {
+    this._isLive = value;
   }
 
   get id(): string {
