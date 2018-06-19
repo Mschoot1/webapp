@@ -81,7 +81,11 @@ export class StreamingVideoComponent implements OnInit {
   }
   getSource(streamKey) {
     if (streamKey === 'key123' || 'key321') {
-      this.source = this.streams[0];
+      // this.source = this.streams[0];
+      this.source = {
+        type: 'hls',
+        source: 'http://188.166.127.54:8000/live/' + streamKey + '/index.m3u8'
+      };
     } else {
       this.source = {
         type: 'hls',
