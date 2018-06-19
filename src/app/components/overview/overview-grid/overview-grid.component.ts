@@ -30,7 +30,7 @@ export class OverviewGridComponent implements OnInit {
       );
     this.streamerService.getLiveStreamers()
       .then(streamers => {
-        this.streamers = streamers;
+        this.livestreamers = streamers;
       })
       .catch(error => console.log(error));
     this.streamers = this.livestreamers.concat(this.defaultStreamers);

@@ -6,6 +6,8 @@ import {Subscription} from 'rxjs/Rx';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {DOCUMENT} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
+import {StreamerService} from "../../../services/streamer.service";
+import {Streamer} from "../../models/streamer.model";
 
 declare const hlsPlayer: any;
 declare const videojs: any;
@@ -24,6 +26,7 @@ export class StreamingVideoComponent implements OnInit {
   @ViewChild(VgDASH) vgDash: VgDASH;
   @ViewChild(VgHLS) vgHls: VgHLS;
   currentStream: IMediaStream;
+  streamer: Streamer;
   streamKey: string;
   source: IMediaStream;
 
@@ -43,7 +46,7 @@ export class StreamingVideoComponent implements OnInit {
     }
   ];
   constructor(private api: VgAPI, private elementref: ElementRef, @Inject(DOCUMENT) private document,
-              private route: ActivatedRoute, private router: Router) {
+              private route: ActivatedRoute, private router: Router, private streamingService: StreamerService) {
   }
   onPlayerReady(api: VgAPI) {
     this.api = api;
