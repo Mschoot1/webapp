@@ -20,6 +20,7 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
   streamer: Streamer;
   username: string;
   followers: number;
+  streamKey: string;
 
   constructor(private chatService: ChatService, private route: ActivatedRoute, private router: Router,
   private tempStreamerService: TempStreamerService, private streamerService: StreamerService) {
@@ -32,9 +33,22 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit() {
-    this.streamer = this.streamerService.getCurrentStreamer();
+   // this.streamer = this.streamerService.getCurrentStreamer();
+    this.route.params
+      .subscribe(params => {
+        console.log('params', params);
+        console.log('streamkey ' + params['key']);
+        this.streamKey = params['key'];
+        this.streamerService.getStreamer(this.streamKey)
+          .then(streamer => {
+            console.log('watching ', this.streamer);
+            this.streamer = streamer;
+          })
+          .catch(error => console.log(error));
+      });
+    console.log('connected to streamer: ', this.streamer);
     this.chatService.leave(this.room);
-    this.room = this.streamer.stream_key;
+    this.room = this.streamKey;
     console.log(this.room);
     this.chatService.join(this.room);
     console.log('joined room', this.room);

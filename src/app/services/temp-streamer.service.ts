@@ -6,9 +6,9 @@ import {Streamer} from "../components/models/streamer.model";
 @Injectable()
 export class TempStreamerService {
   private streamer1 = new Streamer('1', 'Kayvon Rahimi', 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
-    'Streaming Jimmy Neutron every Friday!', 'key123');
+    'Streaming Jimmy Neutron every Friday!', 'key123', true);
   private streamer2 =   new Streamer('1', 'Lars Smans', 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
-    'Fortnite every day', 'key321');
+    'Fortnite every day', 'key123', true);
   private streamers: Streamer[];
   public getStreamers() {
     this.streamers = [];

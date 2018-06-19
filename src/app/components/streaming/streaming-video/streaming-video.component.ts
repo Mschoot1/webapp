@@ -6,8 +6,8 @@ import {Subscription} from 'rxjs/Rx';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {DOCUMENT} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
-import {StreamerService} from "../../../services/streamer.service";
-import {Streamer} from "../../models/streamer.model";
+import {StreamerService} from '../../../services/streamer.service';
+
 
 declare const hlsPlayer: any;
 declare const videojs: any;
@@ -26,7 +26,6 @@ export class StreamingVideoComponent implements OnInit {
   @ViewChild(VgDASH) vgDash: VgDASH;
   @ViewChild(VgHLS) vgHls: VgHLS;
   currentStream: IMediaStream;
-  streamer: Streamer;
   streamKey: string;
   source: IMediaStream;
 
@@ -53,7 +52,7 @@ export class StreamingVideoComponent implements OnInit {
     console.log('api', api);
   }
   ngOnInit() {
-    let s = document.createElement('script');
+    const s = document.createElement('script');
     s.src = 'assets/scripts/script.js';
     this.elementref.nativeElement.appendChild(s);
     this.callHlsjs();
@@ -83,12 +82,12 @@ export class StreamingVideoComponent implements OnInit {
     new videojs();
   }
   getSource(streamKey) {
-    if (streamKey === 'key123' || 'key321') {
-      // this.source = this.streams[0];
-      this.source = {
-        type: 'hls',
-        source: 'http://188.166.127.54:8000/live/' + streamKey + '/index.m3u8'
-      };
+    if (streamKey === 'key123') {
+      this.source = this.streams[0];
+      // this.source = {
+      //   type: 'hls',
+      //   source: 'http://188.166.127.54:8000/live/' + streamKey + '/index.m3u8'
+      // };
     } else {
       this.source = {
         type: 'hls',
