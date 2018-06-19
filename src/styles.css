@@ -65,7 +65,12 @@
 .navbar-text {
   color: #cccccc;
 }
-
 .navbar-nav>li>a.active {
   color: white;
+}
+.container-fluid, .row {
+  height: 100vh;
+}
+.form-group {
+  margin-bottom: 0;
 }
