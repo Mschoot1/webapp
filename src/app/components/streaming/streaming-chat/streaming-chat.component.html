@@ -16,7 +16,7 @@
       </li>
     </ul>
   </div>
-  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" style="display: table-cell;vertical-align: bottom">
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" style="display: table-cell;vertical-align: bottom; padding-top: 16px;">
     <div class="form-group">
       <label class="sr-only" for="message">Message</label>
       <textarea rows="4" formControlName="message" type="text" class="form-control" id="message"
