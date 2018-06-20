@@ -24,7 +24,7 @@ export class StreamingComponent implements OnInit {
     //     this.streamer = this.tempStreamers.getStreamer(params['name']);
     //     console.log('streamer: ', this.streamer);
     //   });
-    this.streamer = this.streamerService.getCurrentStreamer();
+    // this.streamer = this.streamerService.getCurrentStreamer();
     console.log('streaming comp streamer', this.streamer);
   }
 

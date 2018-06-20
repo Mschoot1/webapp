@@ -36,7 +36,7 @@ export class OverviewGridComponent implements OnInit {
 
   toStreamer(streamer) {
     console.log(streamer);
-    this.streamerService.setCurrentStreamer(streamer);
+    // this.streamerService.setCurrentStreamer(streamer);
     this.router.navigate(['watch/' + streamer.stream_key], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 }

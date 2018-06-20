@@ -50,6 +50,7 @@ export class StreamingVideoComponent implements OnInit {
   onPlayerReady(api: VgAPI) {
     this.api = api;
     console.log('api', api);
+    this.api.play();
   }
   ngOnInit() {
     const s = document.createElement('script');
