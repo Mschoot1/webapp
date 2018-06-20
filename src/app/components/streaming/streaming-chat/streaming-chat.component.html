@@ -8,7 +8,7 @@
     <!--</div>-->
   </div>
   <div style="display: table-row; height: 100%;">
-    <ul class="list-unstyled" style="overflow-y:scroll;height:100%">
+    <ul class="list-unstyled" style="overflow-y:auto;height:100%">
       <li *ngFor="let message of messages">
         {{ message.username }} <span class="timestamp">{{ message.timestamp | date: 'mediumTime'}}</span>
         <p class="text" [ngClass]="{'streamer': streamer?.name == message.username}">{{message.message}}</p>
@@ -16,7 +16,7 @@
       </li>
     </ul>
   </div>
-  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" style="display: table-cell;vertical-align: bottom">
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" style="display: table-cell;vertical-align: bottom; padding-top: 16px;">
     <div class="form-group">
       <label class="sr-only" for="message">Message</label>
       <textarea rows="4" formControlName="message" type="text" class="form-control" id="message"

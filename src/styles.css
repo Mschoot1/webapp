@@ -58,7 +58,7 @@
   height: auto;
 }
 .navbar {
-  border-radius: 0px;
+  border-radius: 0;
 }
 .navbar-nav>li>a,
 .navbar-brand,
@@ -68,9 +68,15 @@
 .navbar-nav>li>a.active {
   color: white;
 }
-.container-fluid, .row {
+.container-fluid {
   height: 100vh;
 }
 .form-group {
   margin-bottom: 0;
+}
+
+app-streaming, app-overview-grid {
+  display: table-row;
+  vertical-align: middle;
+  height: 100%;
 }
