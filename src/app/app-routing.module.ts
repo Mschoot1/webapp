@@ -3,9 +3,7 @@
  */
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {OverviewComponent} from './components/overview/overview.component';
 import {StreamingComponent} from './components/streaming/streaming.component';
-import {OverviewStartComponent} from './components/overview/overview-start/overview-start.component';
 import {OverviewGridComponent} from './components/overview-grid/overview-grid.component';
 
 const appRoutes: Routes = [
