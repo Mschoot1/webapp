@@ -45,6 +45,7 @@ span {
 .timestamp {
   font-size: smaller;
   font-style: italic;
+  padding-right: 10px;
 }
 .text {
   font-style: italic;
