@@ -65,30 +65,13 @@ export class StreamingVideoComponent implements OnInit {
       });
     this.currentStream = this.getSource(this.streamKey);
   }
-  onClickStream(stream: IMediaStream) {
-    this.api.pause();
-    this.bitrates = null;
 
-    const timer: Subscription = TimerObservable.create(0, 10).subscribe(
-      () => {
-        this.currentStream = stream;
-        timer.unsubscribe();
-      }
-    );
-  }
   callHlsjs() {
     new hlsPlayer();
-  }
-  callVideojs() {
-    new videojs();
   }
   getSource(streamKey) {
     if (streamKey === 'key123') {
       this.source = this.streams[0];
-      // this.source = {
-      //   type: 'hls',
-      //   source: 'http://188.166.127.54:8000/live/' + streamKey + '/index.m3u8'
-      // };
     } else {
       this.source = {
         type: 'hls',
