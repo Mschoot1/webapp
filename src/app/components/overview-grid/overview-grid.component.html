@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row" style="height:auto">
+    <div class="col-12" *ngIf="noStreamers">
+      <h2>There's no one live at the moment!</h2>
+    </div>
+    <div class="col-12">
+      <mat-grid-list cols="5" rowHeight="200px" gutterSize="10px" class="tile-padding">
+        <mat-grid-tile style="cursor: pointer"
+                       *ngFor="let streamer of streamers" (click)="toStreamer(streamer)">
+          <img matListAvatar src="{{streamer.avatar_source}}" alt="..." class="custom-img">
+          <mat-grid-tile-footer>
+            {{streamer.name}}
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</div>

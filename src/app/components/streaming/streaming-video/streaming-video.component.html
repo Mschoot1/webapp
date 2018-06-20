@@ -1,0 +1,13 @@
+<vg-player (onPlayerReady)="onPlayerReady($event)">
+  <vg-buffering></vg-buffering>
+    <video #myMedia
+           [vgHls]="currentStream.source"
+           [vgMedia]="myMedia"
+           id="video"
+           type="video"
+           controls
+           crossorigin
+           preload
+           autoplay>
+    </video>
+  </vg-player>

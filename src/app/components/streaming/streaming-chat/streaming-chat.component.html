@@ -1,0 +1,24 @@
+<div style="padding:10px;border: 1px lightgray solid;height: 100%;width:100%;display: table;">
+  <div class="messages" style="display: table-row; height: auto;">
+    <h2>Chatroom</h2>
+    <p>Current followers: {{followers}}</p>
+    <hr>
+  </div>
+  <div style="display: table-row; height: 100%;">
+    <ul class="list-unstyled" style="overflow-y:auto;height:100%">
+      <li *ngFor="let message of messages">
+        {{ message.username }} <span class="timestamp">{{ message.timestamp | date: 'mediumTime'}}</span>
+        <p class="text" [ngClass]="{'streamer': streamer?.name == message.username}">{{message.message}}</p>
+      </li>
+    </ul>
+  </div>
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" style="display: table-cell;vertical-align: bottom; padding-top: 16px;">
+    <div class="form-group">
+      <label class="sr-only" for="message">Message</label>
+      <textarea rows="4" formControlName="message" type="text" class="form-control" id="message"
+                placeholder="Message"></textarea>
+      <button type="submit" class="btn btn-primary padding-top">Send</button>
+      <button type="button" class="btn btn-danger padding-top float-right" (click)="toOverview()">Leave</button>
+    </div>
+  </form>
+</div>

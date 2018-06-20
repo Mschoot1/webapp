@@ -1,0 +1,16 @@
+video {
+  width: 100%;
+}
+
+.testmargin {
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+li {
+  cursor: pointer;
+}
+
+li.selected {
+  font-weight: bold;
+}
