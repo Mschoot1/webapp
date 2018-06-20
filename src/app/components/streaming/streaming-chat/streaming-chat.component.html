@@ -2,6 +2,7 @@
   <div class="messages" style="display: table-row; height: auto;">
     <h2>Chatroom: {{room}} </h2>
     <p>Current followers: {{followers}}</p>
+    <p id="LiveStatus"><b></b></p>
     <hr>
     <!--<div *ngFor="let message of messages" [class.self]="message.self" class="message">-->
     <!--{{message.text}}-->
@@ -20,8 +21,8 @@
     <div class="form-group">
       <label class="sr-only" for="message">Message</label>
       <textarea rows="4" formControlName="message" type="text" class="form-control" id="message"
-                placeholder="Message"></textarea>
-      <button type="submit" class="btn btn-primary padding-top">Send</button>
+                placeholder="Message" (keydown.enter)="sendMessage()"></textarea>
+      <button type="submit" class="btn btn-primary padding-top" >Send</button>
       <button type="button" class="btn btn-danger padding-top float-right" (click)="toOverview()">Leave</button>
     </div>
   </form>

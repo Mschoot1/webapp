@@ -53,4 +53,7 @@ export class StreamerService {
   public getCurrentStreamer() {
     return this.currentStreamer;
   }
+  public getLiveStatus(){
+    return this.currentStreamer.isLive;
+  }
 }

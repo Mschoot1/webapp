@@ -6,6 +6,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Message} from '../../models/message.model';
 import {StreamerService} from '../../../services/streamer.service';
 import {Streamer} from '../../models/streamer.model';
+import {Observable} from 'rxjs/index';
 
 @Component({
   selector: 'app-streaming-chat',
@@ -17,6 +18,7 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
   messages: Message[] = [];
   name;
   room;
+  Live: boolean;
   streamer: Streamer;
   username: string;
   followers: number;
@@ -73,6 +75,11 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
         console.log('incoming username', username);
         this.username = username;
       });
+    this.getLiveStatus()
+    .subscribe(Live => {
+      console.log('Live status: ', Live)
+      this.Live = Live;
+    });
   }
 
   sendMessage() {
@@ -89,5 +96,17 @@ export class StreamingChatComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.chatService.leave(this.room);
+  }
+  getLiveStatus(): Observable<boolean> {
+    return new Observable(observer => {
+    this.Live = this.streamerService.getLiveStatus();
+    console.log("Live status is " + this.Live);
+    if(this.Live === true){
+      (document.getElementById("LiveStatus").innerHTML = "Online");
+      }else{
+      (document.getElementById("LiveStatus").innerHTML = "Offline");
+      }
+      observer.next(this.Live);
+    });
   }
 }
