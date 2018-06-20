@@ -19,14 +19,15 @@
   <!--<vg-mute></vg-mute>-->
   <!--<vg-volume></vg-volume>-->
   <!--<vg-fullscreen></vg-fullscreen>-->
-  <!--</vg-controls>-->
-  <video #myMedia
-         [vgHls]="currentStream.source"
-         [vgMedia]="myMedia"
-         id="video"
-         type="video"
-         controls
-         crossorigin
-         autoplay>
-  </video>
-</vg-player>
+    <!--</vg-controls>-->
+    <video #myMedia
+           [vgHls]="currentStream.source"
+           [vgMedia]="myMedia"
+           id="video"
+           type="video"
+           controls
+           crossorigin
+           preload
+           autoplay>
+    </video>
+  </vg-player>

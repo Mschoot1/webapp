@@ -1,6 +1,6 @@
 <div style="padding:10px;border: 1px lightgray solid;height: 100%;width:100%;display: table;">
   <div class="messages" style="display: table-row; height: auto;">
-    <h2>Chatroom: {{room}} </h2>
+    <h2>Chatroom</h2>
     <p>Current followers: {{followers}}</p>
     <hr>
     <!--<div *ngFor="let message of messages" [class.self]="message.self" class="message">-->
@@ -11,7 +11,7 @@
     <ul class="list-unstyled" style="overflow-y:auto;height:100%">
       <li *ngFor="let message of messages">
         {{ message.username }} <span class="timestamp">{{ message.timestamp | date: 'mediumTime'}}</span>
-        <p class="text" [ngClass]="{'streamer': streamer.name == message.username}">{{message.message}}</p>
+        <p class="text" [ngClass]="{'streamer': streamer?.name == message.username}">{{message.message}}</p>
         <!--<h6 class="timestamp">{{message.message}}</h6>-->
       </li>
     </ul>
