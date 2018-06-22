@@ -37,7 +37,7 @@ export class StreamingVideoComponent implements OnInit {
     },
     {
       type: 'hls',
-      source: 'http://188.166.127.54:8000/live/iets/index.m3u8',
+      source: 'http://206.189.102.241:8000/live/iets/index.m3u8',
     },
     {
       type: 'hls',
@@ -75,7 +75,7 @@ export class StreamingVideoComponent implements OnInit {
     } else {
       this.source = {
         type: 'hls',
-        source: 'http://188.166.127.54:8000/live/' + streamKey + '/index.m3u8'
+        source: 'http://206.189.102.241:8000/live/' + streamKey + '/index.m3u8'
       };
     }
     return this.source;
